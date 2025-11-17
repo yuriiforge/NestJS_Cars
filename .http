@@ -2,3 +2,18 @@
 const base = http://localhost:3000
 ###
 GET http://localhost:3000
+
+###
+POST http://localhost:3000/auth/signup
+content-type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "123qwe123qwe"
+}
+
+### Find a particular user
+GET http://localhost:3000/auth/1
+
+### Find users by email
+GET http://localhost:3000/auth?email=test@test.com
