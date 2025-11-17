@@ -1,9 +1,10 @@
 import { CanActivate, ExecutionContext } from '@nestjs/common';
+import { UserSession } from '../users/users.controller';
 
 export class AuthGuard implements CanActivate {
-  canActivate(context: ExecutionContext) {
-    const request = context.switchToHttp().getRequest();
+  canActivate(context: ExecutionContext): boolean {
+    const request = context.switchToHttp().getRequest<UserSession>();
 
-    return request.session.userId;
+    return !!request.currentUser.id;
   }
 }

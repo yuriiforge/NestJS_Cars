@@ -22,6 +22,13 @@ import { CurrentUserInterceptor } from './interceptors/current-user.interceptor'
 import { User } from './user.entity';
 import { AuthGuard } from '../guards/auth.guard';
 
+interface CurrentUserPayload {
+  id: number | null;
+}
+export interface UserSession extends Request {
+  currentUser: CurrentUserPayload | User;
+}
+
 @Controller('auth')
 @Serialize(UserDto)
 @UseInterceptors(CurrentUserInterceptor)
@@ -38,22 +45,28 @@ export class UsersController {
   }
 
   @Post('signout')
-  signOut(@Session() session: any) {
-    session.userId = null;
+  signOut(@Session() session: CurrentUserPayload) {
+    session.id = null;
   }
 
   @Post('signup')
-  async createUser(@Body() body: CreateUserDto, @Session() session: any) {
+  async createUser(
+    @Body() body: CreateUserDto,
+    @Session() session: CurrentUserPayload,
+  ) {
     const user = await this.authService.signup(body.email, body.password);
-    session.userId = user.id;
+    session.id = user.id;
 
     return user;
   }
 
   @Post('signin')
-  async signInUser(@Body() body: CreateUserDto, @Session() session: any) {
+  async signInUser(
+    @Body() body: CreateUserDto,
+    @Session() session: CurrentUserPayload,
+  ) {
     const user = await this.authService.signin(body.email, body.password);
-    session.userId = user.id;
+    session.id = user.id;
 
     return user;
   }
