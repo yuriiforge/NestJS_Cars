@@ -31,7 +31,7 @@ export interface UserSession extends Request {
 
     [key: string]: any;
   };
-  currentUser: CurrentUserPayload | User;
+  currentUser: User;
 }
 
 @Controller('auth')
