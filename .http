@@ -8,7 +8,7 @@ POST http://localhost:3000/auth/signup
 content-type: application/json
 
 {
-    "email": "test2@test.com",
+    "email": "test3@test.com",
     "password": "123qwe123qwe"
 }
 
@@ -17,7 +17,7 @@ POST http://localhost:3000/auth/signin
 content-type: application/json
 
 {
-    "email": "test2@test.com",
+    "email": "test3@test.com",
     "password": "123qwe123qwe"
 }
 
@@ -36,3 +36,17 @@ GET http://localhost:3000/auth/colors
 
 ### Get me
 GET http://localhost:3000/auth/whoami
+
+### Post report
+POST http://localhost:3000/reports
+content-type: application/json
+
+{
+    "make": "toyota",
+    "model": "corolla",
+    "year": 1980,
+    "mileage": 123122,
+    "lng": 0,
+    "lat": 0,
+    "price": 50000
+}

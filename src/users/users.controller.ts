@@ -26,6 +26,11 @@ interface CurrentUserPayload {
   id: number | null;
 }
 export interface UserSession extends Request {
+  session?: {
+    id?: number | null;
+
+    [key: string]: any;
+  };
   currentUser: CurrentUserPayload | User;
 }
 
