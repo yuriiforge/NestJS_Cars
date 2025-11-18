@@ -4,7 +4,7 @@ import { Report } from '../reports/report.entity';
 
 export const dbConfig: TypeOrmModuleOptions = {
   type: 'sqlite',
-  database: 'db.sqlite',
+  database: process.env.NODE_ENV === 'test' ? 'test-db.sqlite' : 'db.sqlite',
   entities: [User, Report],
   synchronize: true,
 };

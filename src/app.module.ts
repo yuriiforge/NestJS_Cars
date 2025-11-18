@@ -5,9 +5,18 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { ReportsModule } from './reports/reports.module';
 import { dbConfig } from './config/db.config';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(dbConfig), UsersModule, ReportsModule],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: `.env.${process.env.NODE_ENV}`,
+    }),
+    TypeOrmModule.forRoot(dbConfig),
+    UsersModule,
+    ReportsModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
