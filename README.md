@@ -47,7 +47,7 @@ NestJS Cars is a backend application for managing car reports and user authentic
 ## Tech Stack
 
 - **Backend:** NestJS, TypeScript
-- **Database:** PostgreSQL, TypeORM
+- **Database:** SQLite, TypeORM
 - **Authentication:** Session-based cookies
 - **Testing:** Unit and integration tests
 
