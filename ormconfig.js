@@ -1,0 +1,28 @@
+const dbConfig = {
+  synchronize: false,
+  migrations: ['migrations/*.js'],
+  cli: {
+    migrationsDir: 'migrations',
+  },
+};
+
+switch (process.env_NODE_ENV) {
+  case 'development':
+    Object.assign(dbConfig, {
+      type: 'sqlite',
+      database: 'db.sqlite',
+      entities: ['**/*.entity.js'],
+    });
+  case 'test':
+    Object.assign(dbConfig, {
+      type: 'sqlite',
+      database: 'test.sqlite',
+      entities: ['**/*.entity.js'],
+    });
+  case 'production':
+    break;
+  default:
+    throw new Error('Uknkown env');
+}
+
+module.exports = dbConfig;

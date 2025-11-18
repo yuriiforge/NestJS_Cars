@@ -18,7 +18,7 @@ NestJS Cars is a backend application for managing car reports and user authentic
   - Queries consider location, year range, and mileage proximity.
 
 - **Database & ORM**
-  - PostgreSQL | SQLite database with TypeORM.
+  - SQLite database with TypeORM.
   - Proper entity relationships and query building.
 
 - **Validation & Serialization**
