@@ -50,3 +50,35 @@ NestJS Cars is a backend application for managing car reports and user authentic
 - **Database:** PostgreSQL, TypeORM
 - **Authentication:** Session-based cookies
 - **Testing:** Unit and integration tests
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone
+cd cars
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Create a .env file in the project root and add your environment variables, based on .env.example:
+
+4. Running the App
+
+- Development mode:
+
+```bash
+npm run start:dev
+```
+
+- Production mode:
+
+```bash
+npm run build
+npm run start:prod
+```
